@@ -1,0 +1,21 @@
+{
+    "name": "c-rock\/weather",
+    "description": "a weather SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "rock",
+            "email": "jasonrock0724@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "phpunit/phpunit": "^8.3",
+        "mockery/mockery": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "CRock\\Weather\\": "src"
+        }
+    }
+}
