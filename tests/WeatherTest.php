@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the crock/weather.
+ *
+ * (c) crock <jasonrock0724@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Crock\Weather\Tests;
 
 use CRock\Weather\Exceptions\HttpException;
@@ -28,7 +37,7 @@ class WeatherTest extends TestCase
                 'city' => '深圳',
                 'output' => 'json',
                 'extensions' => 'base',
-            ]
+            ],
         ])->andReturn($response);
 
         // 将 `getHttpClient` 方法替换为上面创建的 http client 为返回值的模拟方法。
@@ -54,8 +63,6 @@ class WeatherTest extends TestCase
         $w->allows()->getHttpClient()->andReturn($client);
 
         $this->assertSame('<hello>content</hello>', $w->getWeather('深圳', 'all', 'xml'));
-
-
     }
 
     public function testGetWeatherWithGuzzleRuntimeException()
@@ -85,7 +92,6 @@ class WeatherTest extends TestCase
 
     public function testSetGuzzleOptions()
     {
-
         $w = new Weather('mock-key');
 
         // 设置参数前，timeout 为 null
@@ -131,5 +137,4 @@ class WeatherTest extends TestCase
         // 如果没有抛出异常，就会运行到这行，标记当前测试没成功
         $this->fail('Failed to assert getWeather throw exception with invalid argument.');
     }
-
 }
